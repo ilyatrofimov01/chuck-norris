@@ -1,0 +1,20 @@
+.header-title{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    
+}
+.header{
+    width: 100%;
+    padding-left: 10%;
+    background-color: #422ED4;
+    height: 60 px;
+}
+.header-title img{
+    margin: 8px 0;
+    height: 43px;
+    width: 43px;
+}
