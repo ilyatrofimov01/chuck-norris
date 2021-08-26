@@ -10,14 +10,15 @@ const App = () => {
     const [selectedCategory, setSelectCategory] = useState(null)
 
     const fetchCategories = async () => {
-        const newCategories = await getCategories()
-        setCategories(newCategories)
+        const fetchedCategories = await getCategories()
+        setCategories(fetchedCategories)
     }
+
     useEffect(() => {
         fetchCategories()
     }, [])
 
-    const selectCategory = (category) => {
+    const osSelectCategory = (category) => {
         if (selectedCategory !== category) {
             setSelectCategory(category)
         } else {
@@ -31,7 +32,7 @@ const App = () => {
             <div className="content-container">
                 <CategoriesList
                     categories={categories}
-                    onCategoryClick={selectCategory}
+                    onCategoryClick={osSelectCategory}
                     activeCategory={selectedCategory}
                 />
                 <Joke jokeCategory={selectedCategory} />
