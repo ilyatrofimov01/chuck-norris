@@ -18,7 +18,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .categories-list-item:hover{
@@ -38,38 +38,12 @@
     height: 3.5rem;
     width: 16%;
 
-    font-family: 'Raleway', sans-serif;
-    font-weight: 800;
-    color:#1C1C39;
-    font-size: 16px;
-
-    
-
-// &-active{
-//     background-color: #422ED4;
-//     color: white
-// }
-}
-.categories-list-item-active{
-    margin: 10px auto;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-
-    background-color: #FFFFFF;
-    filter: drop-shadow(0px 22px 80px rgba(72, 70, 106, 0.07)) drop-shadow(0px 2.75474px 10.0172px rgba(72, 70, 106, 0.035));
-    border-radius: 18px;
-
-    height: 3.5rem;
-    width: 16%;
 
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
     color:#1C1C39;
     font-size: 16px;
-    background-color: #422ED4;
-    color: white
+
 }
 
-    
 

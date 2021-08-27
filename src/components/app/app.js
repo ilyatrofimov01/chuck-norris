@@ -2,28 +2,32 @@ import React, { useEffect, useState } from 'react'
 import { Header } from '../header/header'
 import { getCategories } from '../../services/chuckNorrisService'
 import { CategoriesList } from '../categories-list/categories-list'
+import { getJoke } from '../../services/chuckNorrisService'
 import './app.css'
 import { Joke } from '../joke/joke'
 
+const initialJoke =
+    'The only thing Chuck Norris says on a job interview: “Hi, I’m Chuck Norris and I start tomorrow. Any questions?'
+
 const App = () => {
     const [categories, setCategories] = useState([])
-    const [selectedCategory, setSelectCategory] = useState(null)
+    const [joke, setJoke] = useState(initialJoke)
 
     const fetchCategories = async () => {
         const fetchedCategories = await getCategories()
         setCategories(fetchedCategories)
+    }
+    const fetchJoke = async (category) => {
+        const newJoke = await getJoke(category)
+        setJoke(newJoke)
     }
 
     useEffect(() => {
         fetchCategories()
     }, [])
 
-    const osSelectCategory = (category) => {
-        if (selectedCategory !== category) {
-            setSelectCategory(category)
-        } else {
-            setSelectCategory(null)
-        }
+    const onSelectCategory = (category) => {
+        fetchJoke(category)
     }
 
     return (
@@ -32,10 +36,9 @@ const App = () => {
             <div className="content-container">
                 <CategoriesList
                     categories={categories}
-                    onCategoryClick={osSelectCategory}
-                    activeCategory={selectedCategory}
+                    onCategoryClick={onSelectCategory}
                 />
-                <Joke jokeCategory={selectedCategory} />
+                <Joke joke={joke} />
             </div>
         </div>
     )

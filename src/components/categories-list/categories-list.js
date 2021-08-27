@@ -1,7 +1,7 @@
 import React from 'react'
 import './categories-list.scss'
 
-const CategoriesList = ({ categories, onCategoryClick, activeCategory }) => {
+const CategoriesList = ({ categories, onCategoryClick }) => {
     return (
         <div className="categories">
             <h2 className="categories-title">Categories</h2>
@@ -9,11 +9,7 @@ const CategoriesList = ({ categories, onCategoryClick, activeCategory }) => {
                 {categories.map((category) => {
                     return (
                         <div
-                            className={
-                                category !== activeCategory
-                                    ? `categories-list-item`
-                                    : `categories-list-item-active`
-                            }
+                            className={`categories-list-item`}
                             key={category}
                             onClick={() => onCategoryClick(category)}
                         >
